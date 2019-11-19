@@ -7,7 +7,7 @@
 //
 
 #import "MainTableViewController.h"
-#import "UITableViewCellModel.h"
+
 
 @interface MainTableViewController() <UITableViewDelegate, UITableViewDataSource>
 

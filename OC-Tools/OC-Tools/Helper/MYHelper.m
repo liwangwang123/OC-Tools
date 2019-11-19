@@ -156,6 +156,69 @@
     return btn;
 }
 
+// 提示框
++ (UIAlertController *)alterView:(NSString *)message
+                           style:(UIAlertControllerStyle)style
+                    cancleButton:(NSString *)cancle
+                    ensureButton:(NSArray *)ensureArr
+                         handler:(void (^)(UIAlertAction *))handler
+                            view:(UIViewController*)control {
+    UIAlertController *alter = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:style];
+    if (message !=nil) {
+        NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:message];
+        [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"PingFang-SC-Regular" size:16] range:NSMakeRange(0, message.length)];
+        [alter setValue:alertControllerMessageStr forKey:@"attributedMessage"];
+    }
+    if (cancle !=nil) {
+       UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancle style:UIAlertActionStyleCancel handler:nil];
+         [cancelAction setValue:UIColorFromRGB(0x3cc051) forKey:@"titleTextColor"];
+         [alter addAction:cancelAction];
+    }
+    if (ensureArr.count !=0) {
+        for (int i = 0; i<ensureArr.count; i++) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:ensureArr[i] style:UIAlertActionStyleDefault handler:handler];
+          [okAction setValue:UIColorFromRGB(0x3cc051) forKey:@"titleTextColor"];
+        [alter addAction:okAction];
+        }
+    }
+    [control presentViewController:alter animated:YES completion:nil];
+    return alter;
+}
 
+// 提示框
++ (UIAlertController *)alterView:(NSString *)message
+                   detailMessage:(NSString *)detailMessage
+                           style:(UIAlertControllerStyle)style
+                    cancleButton:(NSString *)cancle
+                    ensureButton:(NSArray *)ensureArr
+                         handler:(void (^)(UIAlertAction * _Nullable))handler
+                            view:(UIViewController *)control {
+    UIAlertController *alter = [UIAlertController alertControllerWithTitle:message message:detailMessage preferredStyle:style];
+    if (detailMessage !=nil) {
+        NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:detailMessage];
+        //    [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, 4)];
+        [alertControllerMessageStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"PingFang-SC-Regular" size:16] range:NSMakeRange(0, detailMessage.length)];
+        [alter setValue:alertControllerMessageStr forKey:@"attributedMessage"];
+    }
+    if (cancle !=nil) {
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancle style:UIAlertActionStyleCancel handler:nil];
+        [cancelAction setValue:UIColorFromRGB(0xb3b3b3) forKey:@"titleTextColor"];
+        [alter addAction:cancelAction];
+    }
+    if (ensureArr.count !=0) {
+        for (int i = 0; i<ensureArr.count; i++) {
+            if ([ensureArr[i] isEqualToString:@"删除"]) {
+                  UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:handler];
+                [alter addAction:destructiveAction];
+            }else{
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:ensureArr[i] style:UIAlertActionStyleDestructive handler:handler];
+                   [okAction setValue:UIColorFromRGB(0x31dcf0) forKey:@"titleTextColor"];
+                [alter addAction:okAction];
+            }
+        }
+    }
+    [control presentViewController:alter animated:YES completion:nil];
+    return alter;
+}
 
 @end

@@ -47,6 +47,23 @@ NS_ASSUME_NONNULL_BEGIN
                            font:(UIFont *)font
                    cornerRadius:(CGFloat)cornerRadius;
 
+// 提示框
++ (UIAlertController *)alterView:(NSString *)message
+                           style:(UIAlertControllerStyle)style
+                    cancleButton:(NSString *)cancle
+                    ensureButton:(NSArray *)ensureArr
+                         handler:(void (^)(UIAlertAction *))handler
+                            view:(UIViewController*)control;
+
+// 提示框
++ (UIAlertController *)alterView:(NSString *)message
+                   detailMessage:(NSString *)detailMessage
+                           style:(UIAlertControllerStyle)style
+                    cancleButton:(NSString *)cancle
+                    ensureButton:(NSArray *)ensureArr
+                         handler:(void (^)(UIAlertAction * _Nullable))handler
+                            view:(UIViewController *)control;
+
 @end
 
 NS_ASSUME_NONNULL_END
