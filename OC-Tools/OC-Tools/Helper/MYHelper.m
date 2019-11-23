@@ -156,6 +156,32 @@
     return btn;
 }
 
++ (UIView *)customViewFrame:(CGRect)frame corRadiu:(CGFloat)corRadiu {
+    UIView *lineView = [[UIView alloc] initWithFrame:frame];
+    lineView.backgroundColor = [UIColor whiteColor];
+    if (corRadiu > 0) {
+        lineView.layer.cornerRadius = corRadiu;
+        lineView.layer.masksToBounds = YES;
+    }
+    
+    return lineView;
+}
+
+// 自定义label
++ (UILabel *)customLabelFrame:(CGRect)frame
+                        title:(NSString *)title
+                   titleColor:(UIColor *)titleColor
+              backgroundColor:(UIColor *)backgroundColor
+                         font:(UIFont *)font {
+    UILabel *noDataLabel = [[UILabel alloc] initWithFrame:frame];
+    noDataLabel.text = title;
+    noDataLabel.textColor = titleColor;
+    noDataLabel.backgroundColor = backgroundColor;
+    noDataLabel.font = font;
+    noDataLabel.textAlignment = NSTextAlignmentCenter;
+    return noDataLabel;
+}
+
 // 提示框
 + (UIAlertController *)alterView:(NSString *)message
                            style:(UIAlertControllerStyle)style

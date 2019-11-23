@@ -38,6 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
 // APP定制按钮
 + (UIButton *)customMainButtonFrame:(CGRect)frame
                               title:(NSString *)title;
++ (UIView *)customViewFrame:(CGRect)frame corRadiu:(CGFloat)corRadiu;
+// 自定义label
++ (UILabel *)customLabelFrame:(CGRect)frame
+                        title:(NSString *)title
+                   titleColor:(UIColor *)titleColor
+              backgroundColor:(UIColor *)backgroundColor
+                         font:(UIFont *)font;
 
 // 初始化按钮
 + (UIButton *)customButtonFrame:(CGRect)frame
