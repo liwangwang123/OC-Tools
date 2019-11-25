@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
                    titleColor:(UIColor *)titleColor
               backgroundColor:(UIColor *)backgroundColor
                          font:(UIFont *)font;
+// 未读消息数
++ (UILabel *)unreadMessagesLabelRightPoint:(CGPoint)rightPoint
+                                     title:(NSString *)title
+                                      font:(UIFont *)font;
 
 // 初始化按钮
 + (UIButton *)customButtonFrame:(CGRect)frame

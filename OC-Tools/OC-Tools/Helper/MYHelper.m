@@ -182,6 +182,31 @@
     return noDataLabel;
 }
 
+// 未读消息数
++ (UILabel *)unreadMessagesLabelRightPoint:(CGPoint)rightPoint
+                                     title:(NSString *)title
+                                      font:(UIFont *)font {
+    UILabel *label = [self customLabelFrame:CGRectMake(0, 0, 100, 25)
+                                      title:title
+                                 titleColor:[UIColor whiteColor]
+                            backgroundColor:[UIColor redColor]
+                                       font:[UIFont systemFontOfSize:16]];
+    CGSize size;
+    if (title.length == 1) {
+        size = CGSizeMake(25, 25);
+        CGRect rect = CGRectMake(rightPoint.x - size.width - 10, rightPoint.y - size.height / 2, size.width, size.height);
+        label.frame = rect;
+    } else {
+        size = [title boundingRectWithSize:CGSizeMake(100, 25) options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: font} context:nil].size;
+        size.width = size.width + 20;
+        CGRect rect = CGRectMake(rightPoint.x - size.width - 10, rightPoint.y - size.height / 2, size.width, size.height);
+        label.frame = rect;
+    }
+    label.layer.cornerRadius = size.height / 2;
+    label.layer.masksToBounds = YES;
+    return label;
+}
+
 // 提示框
 + (UIAlertController *)alterView:(NSString *)message
                            style:(UIAlertControllerStyle)style
