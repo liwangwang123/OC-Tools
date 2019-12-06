@@ -138,6 +138,10 @@
     return btn;
 }
 
++ (NSString *)appVersionString {
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+}
+
 // 初始化按钮
 + (UIButton *)customButtonFrame:(CGRect)frame
                           title:(NSString *)title
@@ -165,6 +169,14 @@
     }
     
     return lineView;
+}
+
+// 自定义ImageView
++ (UIImageView *)customImageViewFrame:(CGRect)frame
+                        name:(NSString *)name {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+    imageView.image = [UIImage imageNamed:name];
+    return imageView;
 }
 
 // 自定义label

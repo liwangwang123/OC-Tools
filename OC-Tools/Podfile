@@ -4,10 +4,15 @@
 target 'OC-Tools' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  # 网络请求
   pod 'AFNetworking'
+  # json转模型
   pod 'MJExtension'
+  # 弹出框
   pod 'MBProgressHUD'
+  # 键盘遮挡-继承里面的类就可以,xib不仅要修改代码控件的继承类型, IBOutlet 的类型也要修改
+  pod 'TPKeyboardAvoiding'
+  
 
   target 'OC-ToolsTests' do
     inherit! :search_paths

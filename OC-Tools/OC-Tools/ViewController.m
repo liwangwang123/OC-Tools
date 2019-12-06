@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "objc/message.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *name = nil;
+    Class class1 = Nil;
+    int *age = NULL;
+    @autoreleasepool {
+        
+    };
+    
+    
+    
 }
 
 

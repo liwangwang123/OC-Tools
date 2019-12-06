@@ -45,6 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
                    titleColor:(UIColor *)titleColor
               backgroundColor:(UIColor *)backgroundColor
                          font:(UIFont *)font;
+// 自定义ImageView
++ (UIImageView *)customImageViewFrame:(CGRect)frame
+                             name:(NSString *)name;
 // 未读消息数
 + (UILabel *)unreadMessagesLabelRightPoint:(CGPoint)rightPoint
                                      title:(NSString *)title
@@ -57,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
                 backgroundColor:(UIColor *)backgroundColor
                            font:(UIFont *)font
                    cornerRadius:(CGFloat)cornerRadius;
+// 系统版本信息
++ (NSString *)appVersionString;
 
 // 提示框
 + (UIAlertController *)alterView:(NSString *)message

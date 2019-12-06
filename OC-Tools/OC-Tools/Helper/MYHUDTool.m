@@ -17,8 +17,8 @@
     // 设置hud文字
     //    hud.label.text = text;
     //    hud.labelText = text;
-    hud.detailsLabelText = text;
-    hud.detailsLabelFont = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
+    hud.detailsLabel.text = text;
+    hud.detailsLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
     // 设置图片
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:icon]];
     // 再设置模式
@@ -27,7 +27,7 @@
     hud.backgroundColor = [UIColor clearColor];
     // 消失时间
     //    [hud hideAnimated:YES afterDelay:time];
-    [hud hide:YES afterDelay:time];
+    [hud hideAnimated:YES afterDelay:time];
     return hud;
 }
 
@@ -39,15 +39,15 @@
     // 设置hud文字
     //    hud.label.text = text;
     //    hud.labelText = text;
-    hud.detailsLabelText = text;
-    hud.detailsLabelFont = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
+    hud.detailsLabel.text = text;
+    hud.detailsLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
     // 再设置模式
     hud.mode = MBProgressHUDModeCustomView;
     // 设置背景
     hud.backgroundColor = [UIColor clearColor];
     // 消失时间
     //    [hud hideAnimated:YES afterDelay:time];
-    [hud hide:YES afterDelay:time];
+    [hud hideAnimated:YES afterDelay:time];
     return hud;
 }
 
@@ -73,7 +73,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     //    hud.label.text = message;
     //    hud.userInteractionEnabled= NO;
-    hud.labelText = message;
+    hud. label.text = message;
     // YES代表需要蒙版效果
     hud.backgroundColor = [UIColor clearColor];
     hud.mode = MBProgressHUDModeIndeterminate;
